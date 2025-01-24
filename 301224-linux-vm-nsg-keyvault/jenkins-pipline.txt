@@ -1,0 +1,41 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('git-checkout') {
+            steps {
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'e5f6d5f6-931f-4ec1-8052-d89feafcb737', url: 'https://github.com/devops-2611/crm-be.git']])
+            }
+        }
+        stage('terrafrom-version') {
+            steps {
+                sh 'terraform --version''
+            }
+        }  
+        stage('nginx image') {
+            steps {
+                sh 'docker run -d -p 8082:80 nginx:latest'
+            }
+        }                   
+    }
+}
+
+
+###############
+pipeline {
+    agent any
+
+    stages {
+        stage('terrafrom version') {
+            steps {
+                sh 'terraform --version'
+            }
+        }
+        stage('terrafrom version') {
+            steps {
+                sh 'wget -O - https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg'
+            }
+        }
+    }
+}
+

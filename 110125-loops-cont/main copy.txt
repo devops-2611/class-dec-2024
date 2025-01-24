@@ -1,0 +1,89 @@
+variable "common-var" {
+}
+
+
+
+
+
+
+resource "azurerm_resource_group" "rg-block" {
+  for_each = var.common-var
+  name     = each.value.rg-name
+  location = "west us"  # West us, east us
+}
+
+resource "azurerm_storage_account" "storage-block" {
+  depends_on = [ azurerm_resource_group.rg-block ]
+  for_each = var.common-var
+  name                     = each.value.storage-name
+  resource_group_name      = each.value.rg-name
+  location                 = "west us"
+  account_tier             = "Standard"
+  account_replication_type = "GRS"
+}
+
+resource "azurerm_storage_container" "cont-block" {
+  depends_on = [ azurerm_storage_account.storage-block ]
+  for_each = var.common-var
+  name                  = each.value.cont-name
+  storage_account_id    = azurerm_storage_account.storage-block[each.key].id
+  container_access_type = "private"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# resource "azurerm_resource_group" "rg-block" {
+#     for_each = var.common-var
+#     name= each.key
+#     location = "east us"
+# }
+
+
+
+
+
+
+
+
+
+
+
+# resource "azurerm_resource_group" "rg-block" {
+#     for_each = var.common-var
+#     name= each.value
+#     location = "east us"
+  
+# }
+
+
+
+
+
+
+
+
+
+# for_each= 
+#     name1 = "Akshay-rg"
+#     name2= "Kriti-rg"
+#     name3="Ananya-rg"
+
+# resource "azurerm_resource_group" "rg-block" {
+#     count =  2
+#     name = "welcome-${count.idex}"
+#     location = "east us"
+  
+# }
