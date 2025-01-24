@@ -3,6 +3,7 @@ variable "varenvvn" {}
 variable "varenvsn" {}
 variable "varenvpi" {}
 variable "varenvni" {}
+variable "varenvvm" {}
 
 
 
@@ -32,10 +33,17 @@ module "pi-mod" {
 }
 
 module "ni-mod" {
-    source = "../NI"
-    varni = var.varenvni
-    vardatasi = var.varenvsn
-    vardatapi= var.varenvpi
-    depends_on = [ module.pi-mod, module.sn-mod, module.rg-mod ]
-    
+  source     = "../NI"
+  varni      = var.varenvni
+  vardatasi  = var.varenvsn
+  vardatapi  = var.varenvpi
+  depends_on = [module.pi-mod, module.sn-mod, module.rg-mod]
+
+}
+
+module "vm-mod" {
+  source = "../VM"
+  varvm = var.varenvvm
+  vardatani= var.varenvni
+  
 }
