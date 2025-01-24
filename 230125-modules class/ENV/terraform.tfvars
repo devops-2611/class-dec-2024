@@ -1,6 +1,6 @@
 varenvrg = {
   rg01 = {
-    rg-name     = "welc01"
+    rg-name     = "welrg01"
     rg-location = "west us"
   }
 
