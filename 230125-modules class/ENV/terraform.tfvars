@@ -1,5 +1,5 @@
 varenvrg = {
-  rg01 = {
+  ni01 = {
     rg-name     = "welrg01"
     rg-location = "west us"
   }
@@ -7,7 +7,7 @@ varenvrg = {
 }
 
 varenvvn = {
-  vn01 = {
+  ni01 = {
     vnet-name     = "welvn01"
     address_space = ["10.1.0.0/16"]
     rg-name       = "welrg01"
