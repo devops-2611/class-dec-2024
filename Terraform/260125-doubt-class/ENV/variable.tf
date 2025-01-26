@@ -1,0 +1,2 @@
+variable "vaenvrrg" {}
+variable "varenvsa" {}
