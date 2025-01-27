@@ -1,0 +1,12 @@
+variable "varenvrg" {}
+variable "varenvvn" {}
+variable "varenvsn" {}
+variable "varenvpi" {}
+variable "varenvni" {}
+variable "varenvvm" {}
+variable "varenvkv" {}
+variable "varenvnsg" {}
+variable "varenvnsgni" {}
+variable "varenvksu" {}
+variable "varenvksp" {}
+variable "varenvas" {}
