@@ -44,16 +44,6 @@ varenvni={
     }
   }  
 
-# varenvkv={
-#   kv01={
-#     name = "welcome-key1"
-#     resource_group_name = "welcome-rg1"
-#     uname = "user"
-#     pname= "pass"
-#   }
-
-
-# }
 
 varenvvm = {
   vm01 = {
