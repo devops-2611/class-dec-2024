@@ -7,3 +7,5 @@ variable "varenvvm" {}
 variable "varenvkv" {}
 variable "varenvnsg" {}
 variable "varenvnsgni" {}
+variable "varenvksp" {}
+variable "varenvksu" {}

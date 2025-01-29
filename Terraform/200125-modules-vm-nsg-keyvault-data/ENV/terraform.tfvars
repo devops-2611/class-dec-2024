@@ -44,16 +44,16 @@ varenvni={
     }
   }  
 
-varenvkv={
-  kv01={
-    name = "welcome-key1"
-    resource_group_name = "welcome-rg1"
-    uname = "user"
-    pname= "pass"
-  }
+# varenvkv={
+#   kv01={
+#     name = "welcome-key1"
+#     resource_group_name = "welcome-rg1"
+#     uname = "user"
+#     pname= "pass"
+#   }
 
 
-}
+# }
 
 varenvvm = {
   vm01 = {
@@ -81,4 +81,32 @@ varenvnsgni ={
     resource_group_name = "welcomerg01"
     ni-name= "welcomepni001"
   }
+}
+
+
+varenvkv = {
+  kv01 = {
+    name                = "server-kv0021"
+    location            = "west us"
+    resource_group_name = "server-rg"
+    sku_name            = "premium"
+
+  }
+}
+varenvksu = {
+  ku01 = {
+    name   = "user1"
+    value1 = "welcomeuser"
+    kv     = "kv01"
+  }
+
+}
+
+varenvksp = {
+  kp01 = {
+    name   = "pass1"
+    value1 = "welcome@12345"
+    kv     = "kv01"
+  }
+
 }

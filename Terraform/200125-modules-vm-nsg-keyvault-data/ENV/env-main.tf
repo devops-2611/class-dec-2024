@@ -4,6 +4,17 @@ module "rg-mod" {
   
 }
 
+module "kv-mod" {
+  source     = "../KV"
+  varkv      = var.varenvkv
+  varksu     = var.varenvksu
+  varksp     = var.varenvksp
+  depends_on = [module.rg-mod]
+
+}
+
+
+
 module "vn-mod" {
   source = "../VN"
   varvn = var.varenvvn
