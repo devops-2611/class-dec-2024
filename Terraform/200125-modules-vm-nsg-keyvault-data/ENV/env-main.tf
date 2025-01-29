@@ -48,10 +48,12 @@ module "ni-mod" {
 }
 
 module "vm-mod" {
-  depends_on = [ module.ni-mod, module.sn-mod ]
+  depends_on = [ module.ni-mod, module.sn-mod, module.kv-mod ]
   source = "../VM"
   varvm= var.varenvvm
   vardatanic= var.varenvni
+  varksu = var.varenvksu
+  varksp = var.varenvksp
   varkv = var.varenvkv
 }
 

@@ -58,7 +58,8 @@ varenvni={
 varenvvm = {
   vm01 = {
     name                = "welcomevm001"
-    kv = "kv01"
+    ku = "ku01"
+    kp = "kp01"
     ni = "ni01"
     resource_group_name = "welcomerg01"
     location            = "westus"
@@ -86,9 +87,9 @@ varenvnsgni ={
 
 varenvkv = {
   kv01 = {
-    name                = "server-kv0021"
-    location            = "west us"
-    resource_group_name = "server-rg"
+    name                = "server-kv121"
+    location            = "westus"
+    resource_group_name = "welcomerg01"
     sku_name            = "premium"
 
   }
