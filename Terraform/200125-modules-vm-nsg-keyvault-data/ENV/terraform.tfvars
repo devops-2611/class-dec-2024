@@ -87,7 +87,7 @@ varenvnsgni ={
 
 varenvkv = {
   kv01 = {
-    name                = "server-kv121"
+    name                = "server-kv21d"
     location            = "westus"
     resource_group_name = "welcomerg01"
     sku_name            = "premium"
