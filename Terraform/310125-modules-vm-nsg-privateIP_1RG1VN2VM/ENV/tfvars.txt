@@ -3,6 +3,10 @@ varenvrg={
         rg-name = "server-rg01"
         rg-location = "east us"
     }
+    rg02={
+        rg-name = "server-rg02"
+        rg-location = "sweden central"
+    }
 
 }
 varenvvn={
@@ -11,20 +15,26 @@ varenvvn={
         resource_group_name = "server-rg01"
         location = "east us"
         address_space = ["10.1.0.0/16"]
-    }   
+    }
+    vn02={
+        name = "server-vn02"
+        resource_group_name = "server-rg02"
+        location = "sweden central"
+        address_space = ["10.2.0.0/16"]
+    }       
 }
 varenvsn = {
   sn01 = {
     name                 = "server-sn001"
     resource_group_name  = "server-rg01"
     virtual_network_name = "server-vn01"
-    address_prefixes     = ["10.1.10.0/28"]
+    address_prefixes     = ["10.1.0.0/28"]
   }
   sn02 = {
     name                 = "server-sn002"
-    resource_group_name  = "server-rg01"
-    virtual_network_name = "server-vn01"
-    address_prefixes     = ["10.1.20.0/28"]
+    resource_group_name  = "server-rg02"
+    virtual_network_name = "server-vn02"
+    address_prefixes     = ["10.2.0.0/28"]
   }
 
 }
@@ -38,8 +48,8 @@ varenvpi = {
   }
   pi02 = {
     name                = "server-pip002"
-    resource_group_name  = "server-rg01"
-    location            = "east us"
+    resource_group_name  = "server-rg02"
+    location            = "sweden central"
     allocation_method   = "Static"
   }
 }
@@ -58,11 +68,11 @@ varenvni={
 
  ni02 = {
     name                = "server-pni002"
-    resource_group_name = "server-rg01"
-    location            = "east us"
+    resource_group_name = "server-rg02"
+    location            = "sweden central"
     public              = "pi02"
     subnet              = "sn02"
-    ip-name                          = "server-ip002"
+    ip-name                          = "server-ip001"
     private_ip_address_allocation = "Dynamic"
 
     }
@@ -94,8 +104,8 @@ varenvvm = {
     name                = "server-vm002"
     kv = "kv01"
     ni = "ni02"
-    resource_group_name = "server-rg01"
-    location            = "east us"
+    resource_group_name = "server-rg02"
+    location            = "sweden central"
     size                = "Standard_F2"
   }
 
@@ -111,8 +121,8 @@ varenvnsg={
 
   nsg02={
     name = "server-nsg02"
-    location            = "east us"
-    resource_group_name = "server-rg01"
+    location            = "sweden central"
+    resource_group_name = "server-rg02"
   }
 }
 
@@ -124,7 +134,7 @@ varenvnsgni ={
   }
   nsgni02={
     nsg-name="server-nsg02"
-    resource_group_name = "server-rg01"
+    resource_group_name = "server-rg02"
     ni-name= "server-pni002"
   }
 

@@ -1,6 +1,6 @@
 variable "varvm" {}
 variable "vardatanic" {}
-variable "varkv" {}
+# variable "varkv" {}
 
 resource "azurerm_availability_set" "avset" {
     name                         = "server-as"
@@ -19,23 +19,23 @@ data "azurerm_network_interface" "nidata1" {
 }
 
 
-data "azurerm_key_vault" "kvdata1" {
-    for_each = var.varkv    
-    name=each.value.name
-    resource_group_name = each.value.resource_group_name
-}
+# data "azurerm_key_vault" "kvdata1" {
+#     for_each = var.varkv    
+#     name=each.value.name
+#     resource_group_name = each.value.resource_group_name
+# }
 
-data "azurerm_key_vault_secret" "kv1userdata" {
-    for_each = var.varkv  
-    name= each.value.uname  #welcomeuser
-    key_vault_id=data.azurerm_key_vault.kvdata1[each.key].id
-}
+# data "azurerm_key_vault_secret" "kv1userdata" {
+#     for_each = var.varkv  
+#     name= each.value.uname  #welcomeuser
+#     key_vault_id=data.azurerm_key_vault.kvdata1[each.key].id
+# }
 
-data "azurerm_key_vault_secret" "kv1passdata" {
-    for_each = var.varkv
-    name=each.value.pname #welcome@12345
-    key_vault_id=data.azurerm_key_vault.kvdata1[each.key].id
-}
+# data "azurerm_key_vault_secret" "kv1passdata" {
+#     for_each = var.varkv
+#     name=each.value.pname #welcome@12345
+#     key_vault_id=data.azurerm_key_vault.kvdata1[each.key].id
+# }
 
 resource "azurerm_linux_virtual_machine" "vmblock" {
     depends_on = [ azurerm_availability_set.avset ]
@@ -46,8 +46,10 @@ resource "azurerm_linux_virtual_machine" "vmblock" {
     size = each.value.size
     disable_password_authentication=false
     availability_set_id   = azurerm_availability_set.avset.id
-    admin_username = data.azurerm_key_vault_secret.kv1userdata[each.value.kv].value
-    admin_password = data.azurerm_key_vault_secret.kv1passdata[each.value.kv].value
+    # admin_username = data.azurerm_key_vault_secret.kv1userdata[each.value.kv].value
+    # admin_password = data.azurerm_key_vault_secret.kv1passdata[each.value.kv].value
+    admin_username = each.value.username
+    admin_password = each.value.password    
     network_interface_ids = [data.azurerm_network_interface.nidata1[each.value.ni].id]
     
     os_disk {

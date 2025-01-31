@@ -69,34 +69,38 @@ varenvni={
 
   }  
 
-varenvkv={
-  kv01={
-    name = "welcome-kv1"
-    resource_group_name = "kv-rg"
-    uname = "user"
-    pname= "pass"
-  }
+# varenvkv={
+#   kv01={
+#     name = "welcome-kv1"
+#     resource_group_name = "kv-rg"
+#     uname = "user"
+#     pname= "pass"
+#   }
 
 
-}
+# }
 
 varenvvm = {
   vm01 = {
     name                = "server-vm001"
-    kv = "kv01"
+    # kv = "kv01"
     ni = "ni01"
     resource_group_name = "server-rg01"
     location            = "east us"
     size                = "Standard_F2"
+    username = "welcomeuser"
+    password = "welcome@12345"
   
   }
   vm02 = {
     name                = "server-vm002"
-    kv = "kv01"
+    # kv = "kv01"
     ni = "ni02"
     resource_group_name = "server-rg01"
     location            = "east us"
     size                = "Standard_F2"
+    username = "welcomeuser"
+    password = "welcome@12345"    
   }
 
 }

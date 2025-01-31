@@ -10,3 +10,15 @@ resource "azurerm_availability_set" "avset" {
   platform_update_domain_count = 2
   managed                      = true
 }
+
+
+
+
+# resource "azurerm_availability_set" "avset" {
+#   name                         = "server-as"
+#   location                     = "west us"
+#   resource_group_name          = "server-rg"
+#   platform_fault_domain_count  = 2
+#   platform_update_domain_count = 2
+#   managed                      = true
+# }
