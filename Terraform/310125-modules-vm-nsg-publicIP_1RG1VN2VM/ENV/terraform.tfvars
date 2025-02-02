@@ -76,13 +76,11 @@ varenvni={
 #     uname = "user"
 #     pname= "pass"
 #   }
-
-
 # }
 
 varenvvm = {
   vm01 = {
-    name                = "server-vm001"
+    name                = "racebook-VM01"
     # kv = "kv01"
     ni = "ni01"
     resource_group_name = "server-rg01"
@@ -93,7 +91,7 @@ varenvvm = {
   
   }
   vm02 = {
-    name                = "server-vm002"
+    name                = "racebook-VM02"
     # kv = "kv01"
     ni = "ni02"
     resource_group_name = "server-rg01"
