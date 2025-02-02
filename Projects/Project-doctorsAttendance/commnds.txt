@@ -1,12 +1,13 @@
-13.71.111.50  - -front end
-172.166.252.231 - backend
-4.213.112.158 - database
+52.191.214.98  - -front end
+13.91.35.54 - backend
+52.173.25.144 - database
 
 
-ssh frontenduser@13.71.111.50
+ssh welcomeuser@13.71.111.50
 ssh backenduser@172.166.252.231
 ssh dbuser@4.213.112.158
 
+welcomeuser
 welcome@12345
 
 http://13.71.111.50:3000
@@ -21,28 +22,34 @@ sudo chmod -R 755 /var/www
 
 # Transfer the files
 # cd to the folder
-
+ ### Optional ###
+ {
 sudo apt update
 sudo apt-get remove --purge nodejs npm -y
 sudo apt-get autoremove -y
 sudo rm /usr/bin/node
 sudo rm /usr/bin/npm
-sudo apt update
-curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
-sudo apt-get install -y nodejs
 sudo apt-get install xclip -y
 sudo apt-get install netstat -y
 sudo apt install xsel
 sudo apt install net-tools
+ }
+## Required ### {
+  
+sudo apt update
+curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
 npm install
 node -v
 npm -v
 # Install serve globally:
-sudo apt update
-sudo npm install -g serve
+sudo apt update && sudo npm install -g serve
 npm run build
 #Serve the frontend application (assumes a dist directory):
 npx serve -s dist
+
+}
 
 
 # if port 3000 is not presnet or busy:
@@ -66,24 +73,35 @@ sudo chmod -R 755 /var/www
 # Transfer the files
 # cd to the folder
 
+ ### Optional ###
+ {
 sudo apt update
 sudo apt-get remove --purge nodejs npm -y
 sudo apt-get autoremove -y
 sudo rm /usr/bin/node
 sudo rm /usr/bin/npm
-sudo apt update
-curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
-sudo apt-get install -y nodejs
 sudo apt-get install xclip -y
 sudo apt-get install netstat -y
 sudo apt install xsel
 sudo apt install net-tools
-npm install cors
+
+
+
+ }
+
+
+#### Required ## {
+curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+sudo apt-get install -y nodejs && npm install cors
+
 npm install
 node -v
 npm -v
 curl ifconfig.me
 node server.js
+
+
+}
 
 %%#####################
 %%#####################
@@ -95,8 +113,8 @@ The database will be MySQL, and it will be set up to listen for remote connectio
 
 Install MySQL server:
 
-sudo apt update
-sudo apt install -y mysql-server
+sudo apt update && sudo apt install -y mysql-server
+
 sudo mysql_secure_installation
 
 

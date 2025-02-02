@@ -1,0 +1,67 @@
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.14.0"
+    }
+  }
+}
+
+provider "azurerm" {
+  features {}
+  subscription_id = "4be6ec38-1a78-4aec-8229-c72c67b71c7c"
+}
+
+# Resource Group
+resource "azurerm_resource_group" "server_rg01" {
+  name     = "server-rg01"
+  location = "eastus"
+}
+
+# Availability Set
+resource "azurerm_availability_set" "server_as" {
+  name                = "SERVER-AS"
+  location            = azurerm_resource_group.server_rg01.location
+  resource_group_name = azurerm_resource_group.server_rg01.name
+  platform_fault_domain_count = 2
+  platform_update_domain_count = 2
+}
+
+# Virtual Network Interface
+resource "azurerm_network_interface" "server_pni001" {
+  name                = "server-pni001"
+  location            = azurerm_resource_group.server_rg01.location
+  resource_group_name = azurerm_resource_group.server_rg01.name
+
+  ip_configuration {
+    name                          = "internal"
+    subnet_id                     = "<SUBNET_ID>"  # Replace with actual subnet ID
+    private_ip_address_allocation = "Dynamic"
+  }
+}
+
+# Virtual Machine
+resource "azurerm_linux_virtual_machine" "racebook_vm01" {
+  name                = "racebook-VM01"
+  location            = azurerm_resource_group.server_rg01.location
+  resource_group_name = azurerm_resource_group.server_rg01.name
+  size                = "Standard_F2"
+  admin_username      = "welcomeuser"
+  network_interface_ids = [azurerm_network_interface.server_pni001.id]
+  availability_set_id = azurerm_availability_set.server_as.id
+
+  os_disk {
+    caching              = "ReadWrite"
+    storage_account_type = "Standard_LRS"
+    disk_size_gb         = 30
+  }
+
+  source_image_reference {
+    publisher = "Canonical"
+    offer     = "0001-com-ubuntu-server-jammy"
+    sku       = "22_04-lts"
+    version   = "latest"
+  }
+
+  disable_password_authentication = false
+}
