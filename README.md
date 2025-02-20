@@ -50,7 +50,6 @@ sudo apt install fontconfig openjdk-17-jre
 # Verify Java installation
 java -version
 ```**
-Expected Output:**
 ```
 openjdk version "17.0.13" 2024-10-15
 OpenJDK Runtime Environment (build 17.0.13+11-Debian-2)
