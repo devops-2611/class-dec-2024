@@ -51,6 +51,13 @@ eg: az login --service-principal --username 3414d373-1d96-443e-af46-7daa8cfa89e1
 * OpenJDK 64-Bit Server VM (build 17.0.13+11-Debian-2, mixed mode, sharing)
 
 
+**install jenkins**
+* sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \  https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+* echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \   /etc/apt/sources.list.d/jenkins.list > /dev/null
+* sudo apt-get update
+* sudo apt-get install jenkins
+
+
 
 
 
