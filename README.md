@@ -6,6 +6,7 @@
 **Isntall AZ on Linux(ubuntu)**
 
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
 az --version
 
 
