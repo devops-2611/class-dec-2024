@@ -19,10 +19,14 @@ az acount
 to list rg:- az group list --output table
 
 
-terraform init   
+terraform init  
+
 terraform validate
+
 terraform fmt
+
 terraform plan
+
 terraform apply -auto-approve
 
 
