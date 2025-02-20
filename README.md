@@ -32,9 +32,12 @@ terraform apply -auto-approve
 
 **az login:**
    1. az login --user <username> --password <password>    ==> login using userid and password
-   2. az login --service-principal --username <client-id> --password <client-secret> --tenant <tenant-id>  ==> login using service principal
+      
+   3. az login --service-principal --username <client-id> --password <client-secret> --tenant <tenant-id>  ==> login using service principal
+      
 eg: az login --service-principal --username 3414d373-1d96-443e-af46-7daa8cfa89e1 --password mOx8Q~RoeNbCr9rMKhAtQFp95ILnacqMuncDaddR --tenant d55a431a-c0e3-4193-b60c-04b399af4148
-   3. az login --use-device-code 
+
+   5. az login --use-device-code 
 
 
 
