@@ -11,12 +11,12 @@ az --version
 
 **Terraform basic commands**
 
-az logout
-az account show
-az account set --subscription e4017399-a8f8-47ab-b5cb-54fc05394426
-az account list
-az acount
-to list rg:- az group list --output table
+az logout   
+az account show   
+az account set --subscription e4017399-a8f8-47ab-b5cb-54fc05394426   
+az account list   
+az acount   
+to list rg:- az group list --output table   
 
 
 terraform init  
