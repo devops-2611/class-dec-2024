@@ -115,5 +115,15 @@ https://pkg.jenkins.io/debian-stable binary/" | sudo tee \
 # Update package lists and install Jenkins
 sudo apt-get update
 sudo apt-get install jenkins
+dpkg -l | grep jenkins
+
+
+
+cd /etc
+nano /etc/sudoers   or sudo visudo
+cat /etc/sudoers
+%sudo   ALL=(ALL:ALL) ALL
+jenkins ALL=(ALL) NOPASSWD:ALL  
+
 ```
 
