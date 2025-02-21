@@ -120,9 +120,9 @@ dpkg -l | grep jenkins
 
 
 cd /etc
+cat /etc/sudoers
 sudo chmod -R 755 /etc/sudoers
 sudo nano /etc/sudoers   or sudo visudo
-cat /etc/sudoers
 %sudo   ALL=(ALL:ALL) ALL
 jenkins ALL=(ALL) NOPASSWD:ALL  
 
