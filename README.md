@@ -121,8 +121,8 @@ dpkg -l | grep jenkins
 
 
 
-start jenkis:- service jenkins start
-status of jenkis:- service jenkins status
+start jenkins:- service jenkins start
+status of jenkins:- service jenkins status
 
 
 
