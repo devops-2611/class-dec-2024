@@ -1,3 +1,5 @@
+to check the OS version:-  lsb_release -a
+
 **Install Terraform on Linux (Ubuntu)**
 ```sh
 # Add HashiCorp GPG key
@@ -116,6 +118,11 @@ https://pkg.jenkins.io/debian-stable binary/" | sudo tee \
 sudo apt-get update
 sudo apt-get install jenkins
 dpkg -l | grep jenkins
+
+
+
+start jenkis:- service jenkins start
+status of jenkis:- service jenkins status
 
 
 
